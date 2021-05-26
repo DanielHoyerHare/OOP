@@ -8,7 +8,7 @@ namespace OOP_Opgave_1
         {
             Car NewCar = new Car("GE97374", "Lamborghini", new DateTime(2009,11,10));
             Console.WriteLine(NewCar.GetLicense() + ", " + NewCar.GetBrand() + ", " + NewCar.GetYear() + ", " + NewCar.GetAge());
-            Console.ReadKey();
+            Console.ReadKey(); //3
         }
     }
 }
