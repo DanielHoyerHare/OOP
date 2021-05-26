@@ -10,7 +10,7 @@ namespace OOP_Opgave_1
     {
         private string licenseplate;
         private string brand;
-        private int age;
+        private int age;privkekece
         public string GetLicense()
         {
             return licenseplate;
