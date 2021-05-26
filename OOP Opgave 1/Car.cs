@@ -8,6 +8,7 @@ namespace OOP_Opgave_1
 {
     class Car: MotorVehicle
     {
+        public OwnerContactInfo oci;
         private string licenseplate;
         private string brand;
         public string GetLicense()
@@ -27,6 +28,12 @@ namespace OOP_Opgave_1
         {
             brand = brandInput;
         }
+
+        public override void SetOwnerInfo(string name, string telNo)
+        {
+            oci = new OwnerContactInfo(name, telNo);
+        }
+
         public Car(string licenseInput, string brandInput)
         {
             SetLicense(licenseInput);
@@ -38,5 +45,6 @@ namespace OOP_Opgave_1
             SetBrand(brandInput);
             SetYear(dateInput);
         }
+
     }
 }

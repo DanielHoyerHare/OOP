@@ -8,7 +8,7 @@ namespace OOP_Opgave_1
 {
     abstract class MotorVehicle
     {
-        record OwnerContactInfo(string name, string telNo);
+        public record OwnerContactInfo(string name, string telNo);
         private string color;
         private string motorsize;
         private int age;
