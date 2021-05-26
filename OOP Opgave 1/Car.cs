@@ -10,7 +10,8 @@ namespace OOP_Opgave_1
     {
         private string licenseplate;
         private string brand;
-        private int age;privkekece
+        private int age;
+        private DateTime year;
         public string GetLicense()
         {
             return licenseplate;
@@ -36,6 +37,16 @@ namespace OOP_Opgave_1
         {
             age = ageInput;
         }
+        public void SetYear(DateTime yearInput)
+        {
+            year = yearInput;
+            AgeCounter NewCarAge = new AgeCounter(year);
+            SetAge(NewCarAge.GetCarAge(year));
+        }
+        public string GetYear()
+        {
+            return year.ToString("dd/MM/yyyy");
+        }
         public Car(string licenseInput, string brandInput)
         {
             SetLicense(licenseInput);
@@ -45,8 +56,7 @@ namespace OOP_Opgave_1
         {
             SetLicense(licenseInput);
             SetBrand(brandInput);
-            AgeCounter NewCarAge = new AgeCounter(dateInput);
-            SetAge(NewCarAge.GetCarAge(dateInput));
+            SetYear(dateInput);
         }
     }
 }
