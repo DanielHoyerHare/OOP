@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace OOP_Opgave_1
 {
-    class Car: MotorVehicle
+    class Car: MotorVehicle, IVehicleInspectionInfo
     {
         public OwnerContactInfo oci;
         private string licenseplate;
         private string brand;
+
+        public DateTime? LastInspection { get; set; }
+
         public string GetLicense()
         {
             return licenseplate;
@@ -34,16 +37,46 @@ namespace OOP_Opgave_1
             oci = new OwnerContactInfo(name, telNo);
         }
 
+        public DateTime? NextInspection()
+        {
+            AgeCounter calculation = new AgeCounter();
+            Console.WriteLine("1");
+            if (calculation.GetCarAge(Convert.ToDateTime(LastInspection)) >= 2)
+            {
+                Console.WriteLine("2");
+                return DateTime.Now.AddMonths(3);
+            }
+            else
+            {
+                Console.WriteLine("3");
+                return null;
+            }
+        }
+
         public Car(string licenseInput, string brandInput)
         {
             SetLicense(licenseInput);
             SetBrand(brandInput);
         }
-        public Car(string licenseInput, string brandInput, DateTime dateInput)
+        public Car(string licenseInput, string brandInput, DateTime dateInput, DateTime lastInspectInput)
         {
             SetLicense(licenseInput);
             SetBrand(brandInput);
             SetYear(dateInput);
+            LastInspection = lastInspectInput;
+            try
+            {
+                DateTime? Inspection = NextInspection();
+                if (Inspection != null)
+                {
+                    throw new Exception($"Dit køretøj indkaldes til syn den {Convert.ToDateTime(Inspection).ToString("dd.MM.yyyy") }");
+                }
+            }
+            catch(Exception e)
+            {
+                Program Message = new Program();
+                Message.ExeceptionMessage(e);
+            }
         }
 
     }
