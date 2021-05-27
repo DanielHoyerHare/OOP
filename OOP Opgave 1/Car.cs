@@ -40,15 +40,12 @@ namespace OOP_Opgave_1
         public DateTime? NextInspection()
         {
             AgeCounter calculation = new AgeCounter();
-            Console.WriteLine("1");
             if (calculation.GetCarAge(Convert.ToDateTime(LastInspection)) >= 2)
             {
-                Console.WriteLine("2");
                 return DateTime.Now.AddMonths(3);
             }
             else
             {
-                Console.WriteLine("3");
                 return null;
             }
         }
@@ -69,7 +66,7 @@ namespace OOP_Opgave_1
                 DateTime? Inspection = NextInspection();
                 if (Inspection != null)
                 {
-                    throw new Exception($"Dit køretøj indkaldes til syn den {Convert.ToDateTime(Inspection).ToString("dd.MM.yyyy") }");
+                    throw new Exception($"Dit køretøj indkaldes til syn den {Convert.ToDateTime(Inspection).ToString("dd.MM.yyyy") } (" + brand + ")");
                 }
             }
             catch(Exception e)
