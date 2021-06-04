@@ -6,7 +6,8 @@ namespace OOP_Opgave_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Contacts Info = new Contacts();
+            Console.WriteLine(Info.GetContaktInfo(0));
         }
     }
 }
